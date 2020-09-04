@@ -31,6 +31,7 @@ CREATE TABLE IF NOT EXISTS "user" (
   "email" text NOT NULL,
   "password" text NOT NULL,
   "username" text NULL,
+  "role" text NULL,
   "created_at" TIMESTAMPTZ NOT NULL DEFAULT NOW(),
   "updated_at" TIMESTAMPTZ
 );
@@ -64,8 +65,8 @@ CREATE TABLE IF NOT EXISTS "question" (
   -- SEEDING
   -----------------------------------------------------------
 
-INSERT INTO "user" ("id", "username", "email", "password") VALUES
-(1, 'admin', 'messon1@live.fr', 'admin')
+INSERT INTO "user" ("id", "username", "email", "password", "role") VALUES
+(1, 'admin', 'messon1@live.fr', 'monaco123', 'admin');
 
 INSERT INTO "difficulty" ("id", "name") VALUES
 (1, 'Facile'),
