@@ -1,12 +1,15 @@
-const Sequelize = require('sequelize');
+const {
+    Model,
+    DataTypes
+} = require('sequelize');
 const sequelize = require('../database'); //import the connector
 
 
-class Difficulty extends Sequelize.Model {};
+class Difficulty extends Model {};
 
 
 Difficulty.init({
-    name: Sequelize.STRING
+    name: DataTypes.TEXT,
 }, {
     sequelize, //the connector
     tableName: "difficulty",

@@ -1,10 +1,13 @@
-const Sequelize = require('sequelize');
+const {
+    Model,
+    DataTypes
+} = require('sequelize');
 const sequelize = require('../database');
 
-class Answer extends Sequelize.Model {};
+class Answer extends Model {};
 
 Answer.init({
-    name: Sequelize.STRING,
+    name: DataTypes.TEXT,
 }, {
     sequelize,
     tableName: "answer"
