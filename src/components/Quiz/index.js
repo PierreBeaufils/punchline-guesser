@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import Answers from 'src/components/Answers';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import Answers from "src/components/Answers";
+import axios from "axios";
 
 const Quiz = () => {
-  const [quizz, setQuizz] = useState();
-  const [question, setQuestion] = useState();
-  const [answers, setAnswers] = useState();
+  const [quizz, setQuizz] = useState([]);
+  const [question, setQuestion] = useState([]);
+  const [answers, setAnswers] = useState([]);
   const [goodAnswer, setGoodAnswer] = useState(0);
   const [qIndex, setQuestionIndex] = useState(0);
   const [quizLength, setQuizLength] = useState(0);
@@ -13,39 +13,39 @@ const Quiz = () => {
   const [score, setScore] = useState(0);
   const [isAnswered, setIsAnswered] = useState(false);
   const [isLoading, setLoading] = useState(true);
-  const uri = 'http://localhost:3000/quiz/2';
+  const uri = "http://localhost:3000/quiz/2";
 
-  const updateDatas = (index) => {
-    setQuestion(quizz[index]);
-    setAnswers([quizz[index].answers[0], quizz[index].answers[1], quizz[index].answers[2], quizz[index].answers[3]]);
-    setGoodAnswer(quizz[index].answer_id);
+  const updateDatas = () => {
+    console.log(quizz);
+    setQuestion(quizz[qIndex].question);
+    setAnswers([
+      quizz[qIndex].answers[0],
+      quizz[qIndex].answers[1],
+      quizz[qIndex].answers[2],
+      quizz[qIndex].answers[3],
+    ]);
+    setGoodAnswer(quizz[qIndex].answer_id);
     setQuestionIndex(qIndex + 1);
   };
 
-  const loadQuiz = () => {
-    axios.get(uri)
-      .then((response) => {
+  useEffect(() => {
+    const loadQuiz = () => {
+      axios.get(uri).then((response) => {
         setQuizz(response.data);
         setQuizLength(response.data.length);
-        updateDatas(qIndex);
         setLoading(false);
-      })
-      .catch((error) => {
-        console.trace(error);
+        console.log(response);
       });
-  };
+    };
 
-  useEffect(() => {
     loadQuiz();
-    console.log('component mounted');
   }, []);
 
   const nextQuestion = () => {
     if (qIndex === quizLength) {
-      console.log('fin du quiz');
-    }
-    else {
-      updateDatas(qIndex);
+      console.log("fin du quiz");
+    } else {
+      updateDatas();
       setShowButton(false);
       setIsAnswered(false);
     }
@@ -66,9 +66,12 @@ const Quiz = () => {
         <div className="row">
           <div className="col-lg-10 col-lg-offset-1">
             <div id="question">
-              <h4>Question {qIndex}/{quizLength}</h4>
+              <h4>
+                Question {qIndex}/{quizLength}
+              </h4>
               <p>{question}</p>
             </div>
+
             <Answers
               answers={answers}
               goodAnswerId={goodAnswer}
@@ -76,8 +79,17 @@ const Quiz = () => {
               isAnswered={isAnswered}
               increaseScore={handleIncreaseScore}
             />
+
             <div id="submit">
-              {showButton ? <button type="button" className="fancy-btn" onClick={nextQuestion}>{qIndex === quizLength ? 'Finish quiz' : 'Next question'}</button> : null}
+              {showButton ? (
+                <button
+                  type="button"
+                  className="fancy-btn"
+                  onClick={nextQuestion}
+                >
+                  {qIndex === quizLength ? "Finish quiz" : "Next question"}
+                </button>
+              ) : null}
             </div>
           </div>
         </div>
