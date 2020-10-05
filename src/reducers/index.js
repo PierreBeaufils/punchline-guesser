@@ -1,11 +1,11 @@
 import {
-  combineReducers
+  combineReducers,
 } from 'redux';
-import questions from './questions';
+import quizz from './quizz';
 import auth from './auth';
 
 const rootReducer = combineReducers({
-  questions,
+  quizz,
   auth,
 });
 

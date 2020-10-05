@@ -4,8 +4,8 @@ import './home.scss';
 
 import QuizCard from './QuizCard';
 
-const Home = ({ quizz }) => {
-  const quizzList = quizz.map((quiz) => (
+const Home = ({ quizzList }) => {
+  const allQuizz = quizzList.map((quiz) => (
     <QuizCard
       key={quiz.id}
       {...quiz}
@@ -14,13 +14,15 @@ const Home = ({ quizz }) => {
   return (
     <div className="home">
       <p>Hello</p>
-      { quizzList}
+      <div className="card-container">
+        {allQuizz}
+      </div>
     </div>
   );
 };
 
 Home.propTypes = {
-  quizz: PropTypes.arrayOf(
+  quizzList: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
     }),

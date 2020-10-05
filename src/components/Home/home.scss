@@ -1,0 +1,19 @@
+@use 'src/styles/vars';
+
+.card-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.quiz-card {
+  width: 150px;
+  border: 2px solid vars.$third-color;
+  border-radius: 20px;
+  padding: 1rem;
+
+  &--header {
+    height: 150px;
+  }
+}

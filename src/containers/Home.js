@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import Home from 'src/components/Home';
 
 const mapStateToProps = (state) => ({
-  quizz: state.questions.quizz,
+  quizzList: state.quizz.quizzList,
 });
 
 const mapDispatchToProps = {};

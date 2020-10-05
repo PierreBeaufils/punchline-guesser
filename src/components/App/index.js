@@ -4,7 +4,7 @@ import './styles.css';
 import { Switch, Route } from 'react-router-dom';
 
 import Home from 'src/containers/Home';
-import Quiz from 'src/components/Quiz';
+import Quiz from 'src/containers/Quiz';
 
 const App = ({ fetchQuizz }) => {
   useEffect(() => {
