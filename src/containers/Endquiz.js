@@ -1,11 +1,17 @@
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import Endquiz from 'src/components/Endquiz';
+import getQuizById from 'src/selectors/quiz';
 
-const mapStateToProps = (state) => ({
-  score: state.quizz.score,
-  quizzLength: state.quizz.questions.length,
-  difficulty: state.quizz.currentQuiz.title,
-});
+const mapStateToProps = (state, ownProps) => {
+  const { params } = ownProps.match;
+  const id = parseInt(params.id, 10);
+  return {
+    score: state.quizz.score,
+    quizzLength: state.quizz.questions.length,
+    quiz: getQuizById(state.quizz.quizzList, id),
+  };
+};
 
 const mapDispatchToProps = {};
 
@@ -15,4 +21,4 @@ const EndquizContainer = connect(
   mapDispatchToProps,
 )(Endquiz);
 
-export default EndquizContainer;
+export default withRouter(EndquizContainer);

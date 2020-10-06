@@ -5,10 +5,13 @@ import { Link } from 'react-router-dom';
 import './endquiz.scss';
 
 // == Component
-const Endquiz = ({ score, quizzLength, difficulty }) => (
+const Endquiz = ({ score, quiz, quizzLength }) => (
   <div className="endquiz">
+    <div className="endquiz--message">
+      Partie Terminée !
+    </div>
     <div className="endquiz--difficulty">
-      Difficulté: {difficulty}
+      Difficulté: {quiz.title}
     </div>
     <div className="endquiz--score">
       Vous avez fais un score de {score} / {quizzLength}
@@ -26,14 +29,14 @@ const Endquiz = ({ score, quizzLength, difficulty }) => (
 
 Endquiz.defaultProps = {
   score: 0,
+  quiz: null,
   quizzLength: 0,
-  difficulty: null,
 };
 
 Endquiz.propTypes = {
   score: PropTypes.number,
+  quiz: PropTypes.object,
   quizzLength: PropTypes.number,
-  difficulty: PropTypes.string,
 };
 
 export default Endquiz;
