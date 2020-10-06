@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Answers from 'src/components/Answers';
+import Endquiz from 'src/components/Endquiz';
 import './quiz.scss';
 
 const Quiz = ({
@@ -13,6 +15,28 @@ const Quiz = ({
     fetchQuestions(quiz.id);
     console.log(quiz);
   }, []);
+
+  const renderButton = () => {
+    if (questionIndex + 1 === questions.length) {
+      return (
+        <Link to={`/quiz/${quiz.id}/result`}>
+          <button
+            type="button"
+            className="quizz-button"
+          >Terminer
+          </button>
+        </Link>
+      );
+    }
+    return (
+      <button
+        type="button"
+        className="quizz-button"
+        onClick={nextQuestion}
+      >Next
+      </button>
+    );
+  };
 
   return (
     <div className="quizz">
@@ -36,15 +60,7 @@ const Quiz = ({
           />
 
           <div id="submit">
-            {showButton ? (
-              <button
-                type="button"
-                className="quizz-nextbutton"
-                onClick={nextQuestion}
-              >
-                {questionIndex + 1 === questions.length ? 'Terminer' : 'Next'}
-              </button>
-            ) : null}
+            {showButton ? renderButton() : null}
           </div>
         </>
       )}

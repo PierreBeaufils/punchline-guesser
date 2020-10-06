@@ -4,7 +4,9 @@ import App from 'src/components/App';
 // Action Creators
 import { fetchQuizz } from 'src/actions/questions';
 
-const mapStateToProps = null;
+const mapStateToProps = (state) => ({
+  loading: state.quizz.loading,
+});
 
 const mapDispatchToProps = (dispatch) => ({
   fetchQuizz: () => {

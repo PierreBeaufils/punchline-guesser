@@ -1,3 +1,4 @@
+export const SET_LOADING = 'SET_LOADING';
 export const FETCH_QUIZZ = 'FETCH_QUIZZ';
 export const SAVE_QUIZZ = 'SAVE_QUIZZ';
 
@@ -15,6 +16,11 @@ export const NEXT_QUESTION = 'NEXT_QUESTION';
 export const INCREASE_QUESTION_INDEX = 'INCREASE_QUESTION_INDEX';
 
 // Actions creator
+export const setLoading = (loading) => ({
+  type: SET_LOADING,
+  loading,
+});
+
 export const fetchQuizz = () => ({
   type: FETCH_QUIZZ,
 });

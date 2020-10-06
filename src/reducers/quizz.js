@@ -1,4 +1,5 @@
 import {
+  SET_LOADING,
   SAVE_QUIZZ,
   SAVE_QUESTIONS,
   INITIALIZE_QUIZ,
@@ -12,7 +13,8 @@ import {
 
 const initialState = {
   quizzList: [],
-  loading: false,
+  loading: true,
+  currentQuiz: {},
   questions: [],
   currentQuestion: {},
   questionIndex: 0,
@@ -26,6 +28,11 @@ const initialState = {
 
 const questions = (state = initialState, action = {}) => {
   switch (action.type) {
+    case SET_LOADING:
+      return {
+        ...state,
+        loading: action.loading,
+      };
     case SAVE_QUIZZ:
       return {
         ...state,
