@@ -33,14 +33,24 @@ const mainController = {
                 include: 'quiz_difficulty'
             });
             //Get questions by difficulty according to the quiz
-            const questions = await Question.findAll({
-                include: ["good_answer"],
-                where: {
-                    difficulty_id: quiz.difficulty_id
-                },
-                order: sequelize.random(),
-                limit: 3
-            });
+            let questions;
+            if (quizId === 4) {
+                questions = await Question.findAll({
+                    include: ["good_answer"],
+                    order: sequelize.random(),
+                    limit: 3
+                });
+            } else {
+                questions = await Question.findAll({
+                    include: ["good_answer"],
+                    where: {
+                        difficulty_id: quiz.difficulty_id
+                    },
+                    order: sequelize.random(),
+                    limit: 3
+                });
+            };
+
 
 
             //For each question, get the answer + 3 random answers in an array to display
@@ -70,11 +80,6 @@ const mainController = {
                 return question;
             }));
             res.json(questionsWithAnswers);
-            /*
-            res.render('play_quiz', {
-                questions: questionsWithAnswers
-            })
-            */
 
         } catch (error) {
             console.trace(error);

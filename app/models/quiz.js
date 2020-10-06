@@ -4,12 +4,13 @@ const {
 } = require('sequelize');
 const sequelize = require('../database');
 
-class Quiz extends Model {};
+class Quiz extends Model { };
 
 
 Quiz.init({
     title: DataTypes.TEXT,
     description: DataTypes.TEXT,
+    thumbnail: DataTypes.TEXT,
     difficulty_id: DataTypes.INTEGER,
 }, {
     sequelize,
