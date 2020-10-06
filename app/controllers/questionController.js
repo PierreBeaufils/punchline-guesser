@@ -7,121 +7,99 @@ const questionController = {
 
     list: async (req, res) => {
         try {
-
-            const questions = await question.findAll({
-                include: 'labels',
-                order: [
-                    ['position', 'ASC'],
-                ],
+            const questions = await Question.findAll({
+                include: 'difficulty'
             });
-            // envoyer une réponse
+
             res.json(questions);
         } catch (error) {
             console.trace(error);
             res.status(500).json(error.toString());
         }
     },
-    // créer une carte
+
     create: async (req, res) => {
         try {
-            // gérer les champs obligatoire
+            // Handle required fields
             if (!req.body.title) {
                 throw new Error('title obligatoire');
             }
             if (!req.body.list_id) {
                 throw new Error('list_id obligatoire');
             }
-            // créer la carte
-            const newquestion = await question.create({
+            // Create question
+            const newQuestion = await Question.create({
                 question: req.body.question,
                 difficulty_id: req.body.difficulty_id,
                 answer_id: req.body.list_id,
             });
-            // envoyer une réponse
-            res.json(newquestion);
+
+            res.json(newQuestion);
         } catch (error) {
             console.trace(error);
             res.status(500).json(error.toString());
         }
     },
-    // lire une carte
+
     read: async (req, res) => {
         try {
-            // récupérer l'id demandé
             const id = req.params.id;
-            // trouver la carte
-            const question = await question.findByPk(id, {
-                include: 'labels',
-                order: [
-                    ['position', 'ASC']
-                ],
+
+            const question = await Question.findByPk(id, {
+                include: 'difficulty'
             });
-            // si tout va bien on donne la carte
+
             if (question) {
                 res.json(question);
-            }
-            // sinon on donne une erreur
-            else {
-                res.status(404).json(`Aucune carte à l'id ${id}`);
+            } else {
+                res.status(404).json(`Aucune question à l'id ${id}`);
             }
         } catch (error) {
             console.trace(error);
             res.status(500).json(error.toString());
         }
     },
-    // mettre à jour une carte
+
     update: async (req, res) => {
         try {
-            // récupérer l'id demandé
             const id = req.params.id;
-            // trouver la carte
-            const question = await question.findByPk(id);
-            // si tout va bien on modifie
+
+            const question = await Question.findByPk(id);
+
             if (question) {
-                // mettre à jour la carte avec les infos passées
-                // si on nous a renseigné un champ, on le modifie
-                if (req.body.title) {
-                    question.title = req.body.title;
+                if (req.body.question) {
+                    question.question = req.body.question;
                 }
-                if (req.body.color) {
-                    question.color = req.body.color;
+                if (req.body.difficulty_id) {
+                    question.difficulty_id = req.body.difficulty_id;
                 }
-                if (req.body.position) {
-                    question.position = req.body.position;
+                if (req.body.answer_id) {
+                    question.answer_id = req.body.answer_id;
                 }
-                if (req.body.list_id) {
-                    question.list_id = req.body.list_id;
-                }
-                // sauvegarder en bdd
-                const questionSaved = await question.save();
-                // envoyer une réponse
-                res.json(questionSaved);
-            }
-            // sinon on donne une erreur
-            else {
-                res.status(404).json(`Aucune carte à l'id ${id}`);
+                // BDD Saving
+                const questionUpdated = await Question.save();
+                res.json(questionUpdated);
+            } else {
+                res.status(404).json(`Aucune question à l'id ${id}`);
             }
         } catch (error) {
             console.trace(error);
             res.status(500).json(error.toString());
         }
     },
-    // supprimer une carte
+
     delete: async (req, res) => {
         try {
-            // récupérer l'id demandé
             const id = req.params.id;
-            // trouver la carte
+
             const question = await question.findByPk(id);
-            // si on trouve
+
             if (question) {
-                // on supprime
-                await question.destroy();
-                res.json('Carte supprimée');
-            }
-            // sinon on donne une erreur
-            else {
-                res.status(404).json(`Aucune carte à l'id ${id}`);
+                // Delete if founded
+                await Question.destroy();
+                res.json('question supprimée');
+            } else {
+                res.status(404).json(`Aucune question à l'id ${id}`);
             }
         } catch (error) {
             console.trace(error);
@@ -134,9 +112,9 @@ const questionController = {
             // on essaye de récupérer la carte en fonction de l'id éventuel
             let question;
             if (req.params.id) {
-                question = await question.findByPk(req.params.id);
+                question = await Question.findByPk(req.params.id);
             }
-            // si on connait cette carte
+            // si on connait cette question
             if (question) {
                 // on met à jour
                 await questionController.update(req, res);

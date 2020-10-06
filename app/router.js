@@ -12,7 +12,7 @@ const mainController = require('./controllers/mainController');
 router.get('/', mainController.home);
 
 router.get('/quiz/:id', mainController.displayQuiz);
-router.post('/quiz/:id', mainController.playQuiz);
+//router.post('/quiz/:id', mainController.playQuiz);
 
 /*
 router.get('/questions', questionController.questions);

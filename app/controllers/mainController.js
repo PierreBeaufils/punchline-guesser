@@ -39,7 +39,7 @@ const mainController = {
                     difficulty_id: quiz.difficulty_id
                 },
                 order: sequelize.random(),
-                limit: 1
+                limit: 3
             });
 
 
@@ -70,7 +70,11 @@ const mainController = {
                 return question;
             }));
             res.json(questionsWithAnswers);
-
+            /*
+            res.render('play_quiz', {
+                questions: questionsWithAnswers
+            })
+            */
 
         } catch (error) {
             console.trace(error);
@@ -92,44 +96,63 @@ const mainController = {
                     difficulty_id: quiz.difficulty_id
                 },
                 order: sequelize.random(),
-                limit: 10
-            })
+                limit: 3
+            });
 
-            let totalScore = 0;
-            let answers = []; //Create table with the good answer + 3 random answers;
-            let quizResponses = [];
+            const questionsWithAnswers = await Promise.all(questions.map(async (question) => {
 
-            for (let question of questions) {
-                answers.push(question.good_answer);
+                let answers = [];
+                answers.push(question.good_answer); //Push the good answer
 
                 const randomAnswers = await Answer.findAll({
-                    //[id.ne]: question.good_answer.id,
+                    where: {
+                        id: {
+                            [Op.ne]: question.good_answer.id
+                        } //
+                    },
                     order: sequelize.random(),
                     limit: 3
                 });
 
-                answers.push(randomAnswers);
+                randomAnswers.forEach(randomAnswer => {
+                    answers.push(randomAnswer);
+                });
 
+                question.dataValues['answers'] = answers;
+                question.dataValues.answers.sort(() => Math.random() - 0.5);
+
+                return question;
+            }));
+
+            //Get answers from the post form quiz
+
+            let totalScore = 0;
+            let userResponses = [];
+
+            for (let question of questionsWithAnswers) {
                 const isGood = question.good_answer.id === parseInt(req.body[`question_${question.id}`]);
-
+                console.log(question.good_answer.id, parseInt(req.body[`question_${question.id}`]));
                 if (isGood) {
                     totalScore++;
                 }
-                quizResponses.push({
+                console.log(isGood);
+                userResponses.push({
                     question_answer: question.good_answer.id,
                     user_answer: parseInt(req.body[`question_${question.id}`]),
                     isGood
                 })
             };
 
+            res.render('score', {
+                userResponses,
+                totalScore,
+                questionsWithAnswers
+            });
+
         } catch (error) {
             console.trace(error);
             res.status(500).send(error);
         }
-
-
-
-
     },
 
     notFound: (req, res) => {

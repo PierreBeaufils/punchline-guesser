@@ -1,0 +1,28 @@
+body {
+    background-color: #1b262c;
+}
+
+#quiz {
+    background-color: #1b262c;
+    color: #FFFFFF;
+    margin-left: auto;
+    margin-right: auto;
+    width: 600px;
+}
+
+.answers {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.answers-item {
+    width: 50%;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    border-radius: 20px;
+    background-color: #3282b8;
+    color: rgba(255, 255, 255, .87);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, .5);
+}
