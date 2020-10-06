@@ -1,0 +1,9 @@
+@use 'src/styles/vars';
+
+.app {
+  margin: 0 auto;
+  width: 100vw;
+  height: 100vh;
+  background-color: vars.$background-color;
+  box-sizing: border-box;
+}
