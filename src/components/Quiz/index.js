@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Answers from 'src/components/Answers';
-import Endquiz from 'src/components/Endquiz';
 import './quiz.scss';
 
 const Quiz = ({

@@ -28,7 +28,10 @@
     border-bottom: 2px solid vars.$third-color;
 
     &-content {
-      position: absolute
+      position: absolute;
+      color: #fff;
+      font-weight: 500;
+      text-shadow: 2px 1px 1px rgba(0, 0, 0, 1);
     }
   }
 
@@ -38,7 +41,7 @@
   }
 }
 
-.image {
+.thumbnail {
   width: 150px;
   height: 150px;
   object-fit: cover;
