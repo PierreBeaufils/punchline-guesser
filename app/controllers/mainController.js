@@ -86,79 +86,80 @@ const mainController = {
             res.status(500).send(error);
         }
     },
-
-    playQuiz: async (req, res) => {
-        try {
-            const quizId = parseInt(req.params.id, 10);
-            const quiz = await Quiz.findByPk(quizId, {
-
-                include: 'quiz_difficulty'
-            });
-            //Get questions by difficulty according to the quiz
-            const questions = await Question.findAll({
-                include: ["good_answer"],
-                where: {
-                    difficulty_id: quiz.difficulty_id
-                },
-                order: sequelize.random(),
-                limit: 3
-            });
-
-            const questionsWithAnswers = await Promise.all(questions.map(async (question) => {
-
-                let answers = [];
-                answers.push(question.good_answer); //Push the good answer
-
-                const randomAnswers = await Answer.findAll({
+    /* --- playQuiz POST DISABLED, handled only by the front app ---
+        playQuiz: async (req, res) => {
+            try {
+                const quizId = parseInt(req.params.id, 10);
+                const quiz = await Quiz.findByPk(quizId, {
+    
+                    include: 'quiz_difficulty'
+                });
+                //Get questions by difficulty according to the quiz
+                const questions = await Question.findAll({
+                    include: ["good_answer"],
                     where: {
-                        id: {
-                            [Op.ne]: question.good_answer.id
-                        } //
+                        difficulty_id: quiz.difficulty_id
                     },
                     order: sequelize.random(),
                     limit: 3
                 });
-
-                randomAnswers.forEach(randomAnswer => {
-                    answers.push(randomAnswer);
+    
+                const questionsWithAnswers = await Promise.all(questions.map(async (question) => {
+    
+                    let answers = [];
+                    answers.push(question.good_answer); //Push the good answer
+    
+                    const randomAnswers = await Answer.findAll({
+                        where: {
+                            id: {
+                                [Op.ne]: question.good_answer.id
+                            } //
+                        },
+                        order: sequelize.random(),
+                        limit: 3
+                    });
+    
+                    randomAnswers.forEach(randomAnswer => {
+                        answers.push(randomAnswer);
+                    });
+    
+                    question.dataValues['answers'] = answers;
+                    question.dataValues.answers.sort(() => Math.random() - 0.5);
+    
+                    return question;
+                }));
+    
+                //Get answers from the post form quiz
+    
+                let totalScore = 0;
+                let userResponses = [];
+    
+                for (let question of questionsWithAnswers) {
+                    const isGood = question.good_answer.id === parseInt(req.body[`question_${question.id}`]);
+                    console.log(question.good_answer.id, parseInt(req.body[`question_${question.id}`]));
+                    if (isGood) {
+                        totalScore++;
+                    }
+                    console.log(isGood);
+                    userResponses.push({
+                        question_answer: question.good_answer.id,
+                        user_answer: parseInt(req.body[`question_${question.id}`]),
+                        isGood
+                    })
+                };
+    
+                res.render('score', {
+                    userResponses,
+                    totalScore,
+                    questionsWithAnswers
                 });
-
-                question.dataValues['answers'] = answers;
-                question.dataValues.answers.sort(() => Math.random() - 0.5);
-
-                return question;
-            }));
-
-            //Get answers from the post form quiz
-
-            let totalScore = 0;
-            let userResponses = [];
-
-            for (let question of questionsWithAnswers) {
-                const isGood = question.good_answer.id === parseInt(req.body[`question_${question.id}`]);
-                console.log(question.good_answer.id, parseInt(req.body[`question_${question.id}`]));
-                if (isGood) {
-                    totalScore++;
-                }
-                console.log(isGood);
-                userResponses.push({
-                    question_answer: question.good_answer.id,
-                    user_answer: parseInt(req.body[`question_${question.id}`]),
-                    isGood
-                })
-            };
-
-            res.render('score', {
-                userResponses,
-                totalScore,
-                questionsWithAnswers
-            });
-
-        } catch (error) {
-            console.trace(error);
-            res.status(500).send(error);
-        }
-    },
+    
+            } catch (error) {
+                console.trace(error);
+                res.status(500).send(error);
+            }
+        },
+        */
 
     notFound: (req, res) => {
         res.status(404).json('Ce endpoint n\'existe pas');

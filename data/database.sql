@@ -129,8 +129,29 @@ INSERT INTO "question" ("question", "difficulty_id", "answer_id") VALUES
 ('Le cœur meurtri, meurtrière est ta jalousie, L''enfant seul se méfie de tout le monde, pas par choix, mais dépit', 2, 9),
 ('Grandir sans père c''est dur, même si la mère persévère, Ça sert, mais pas à trouver ses repères c''est sûr ! Perdre sa mère c''est pire ! Demande à Pit je t''assure, T''as pas saisi enlève la mer de la Côte D''Azur', 3, 9),
 ('En crachant sur l''un, forcément tu suces l’autre, La salope de l''un est souvent la femme d’un autre', 2, 34),
-('Putain j''ai plus la trique, je ressens plus la zik, Ya plus de clips sur la 6 c''est loin l''époque des Lunatic', 3, 22);
-
+('Putain j''ai plus la trique, je ressens plus la zik, Ya plus de clips sur la 6 c''est loin l''époque des Lunatic', 3, 22),
+('On meurt avec un vécu, aucun mec invaincu, désormais convaincu des lacunes qu''on véhicule', 2, 31),
+('Une autre a de l''amour pour deux, je fais pas d''effort, elle serait prête à tout, même à se tatouer la tête de Marine Le Pen sur les fesses pour que je lui claque très fort', 2, 31),
+('J''me retourne dans mon lit en m''demandant si j''dois les baiser, Vu que la nuit porte conseil, j''me lève avec le barreau', 1, 31),
+('Tu voulais pas cer-su mais cracher, ça c''est sûr, Écrasée par les putes t''es comme la lune : on croit tous qu''on t''a marché dessus', 2, 31),
+('Les filles sortent de sa chambre chaude, les MC''s sortent de sa chambre froide', 2, 31),
+('Se tailler les veines est devenu pour certains jeunes le seul moyen de se faire des grosses coupures', 1, 31),
+('Le studio est allemand, italiennes sont les bagnoles, les concerts sont américains, les branlettes sont espagnoles', 2, 31),
+('Même dans le Sahara je refuserais ton verre d''eau, Je sais même plus à quoi tu ressembles tellement tu m''tourne le dos', 3, 20),
+('C''est la fête des bonhommes, vide un chargeur vers le ciel, Frotte tes couilles contre un mur, ça doit faire des étincelles', 3, 20),
+('Je me suis déterré tout seul, ils ont mal scellé le cercueil, Tes rêves envient mes œuvres, mon stylo crève le mauvais œil', 2, 20),
+('Le Rap Game envoie des piques, étudie mes techniques, Je pratique sans théorie le hardcore le plus authentique', 2, 20),
+('10 ans d''avance sur les concurrents j''les déplume, Y''a que leur cahier qui est Conquérant, j''nettoie La Nocturne', 2, 20),
+('Nul attention d''repeindre mon image, de trop meubler mon âge, J''ai assez de vices pour faire du bricolage', 3, 20),
+('Si la vie est moche, les souvenirs lui donnent du charme, Quand j''montais la passerelle de l''avion en saluant ma grand-mère en larmes', 2, 20),
+('Y a pas de sentiments, que des centimètres', 1, 20),
+('Pendant que les riches tuent le temps, le temps tue les pauvres', 3, 20),
+('Donc bouge ! Avant de parler de moi laves toi la bouche, Et sache que les couilles faut pas les avoir dans la bouche', 2, 20),
+('Ils se mettent à la prière pour esquiver le drame attends, Mais restent enfouraillés même en période de Ramadan', 1, 20),
+('Qu''on m''aime, qu''on me déteste, plus j''ai mal, plus j''progresse, Peu d''tendresse, le temps presse, si j''pars, ma musique elle reste', 1, 20),
+('On t''aime pour c''que t''as, on te déteste pour c''que t''es', 1, 20),
+('Mon compte en banque est moins blindé que mon bloc-notes, Pourtant j''ai assez d''euros pour être joyeux avec les menottes', 1, 20),
+('Promets pas la lune si t’as pas la fusée, usé d’se sentir désabuser, rusé, Si t''as pas d''preuves, viens pas m''accuser', 1, 20),
 
 
 COMMIT;
