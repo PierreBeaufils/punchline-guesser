@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const mainController = require('./controllers/mainController');
+const questionController = require('./controllers/questionController');
 
 //const userController = require('./controllers/userController');
 //const adminMW = require('./middlewares/adminMW');
@@ -12,12 +13,10 @@ const mainController = require('./controllers/mainController');
 router.get('/', mainController.home);
 
 router.get('/quiz/:id', mainController.displayQuiz);
-//router.post('/quiz/:id', mainController.playQuiz); DISABLED
 
+router.get('/questions', questionController.list);
+router.get('/question/:id', questionController.read);
 /*
-router.get('/questions', questionController.questions);
-router.get('/question/:id', questionController.question);
-
 router.get('/login', userController.getLogin);
 router.get('/signup', userController.getSignup);
 router.post('/login', userController.login);
