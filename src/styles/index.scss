@@ -1,6 +1,7 @@
 @use 'reset';
 @use 'vars';
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@700&display=swap');
 
 body {
   margin: 0;
@@ -8,6 +9,8 @@ body {
   font-weight: 300;
   color: vars.$font-color;
   background-color: vars.$background-color;
+  width: 100vw;
+  height: 100vh;
 }
 
 .quizz-button {

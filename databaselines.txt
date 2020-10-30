@@ -31,4 +31,9 @@
 ('Nekfeu'),
 ('Ill'),
 ('Alpha Wann'),
-('Seth Gueko');
+('Seth Gueko'),
+('Niro'),
+('Médine'),
+('Guizmo'),
+('Dosseh'),
+('Alkpote'),

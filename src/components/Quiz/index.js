@@ -42,7 +42,7 @@ const Quiz = ({
       {!quizLoading && (
         <>
           <div className="quizz-difficulty">
-            {quiz.title}
+            Difficulté: {quiz.title}
           </div>
           <div className="quizz-length">
             Punchline {questionIndex + 1}/{questions.length}

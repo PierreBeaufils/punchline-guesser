@@ -2,8 +2,7 @@
 
 .quizz {
   margin: 0 auto;
-  width: 375px;
-  height: 100vh;
+  max-width: 540px;
   background-color: vars.$background-color;
   box-sizing: border-box;
   padding: 2rem;
@@ -34,5 +33,26 @@
     margin-top: 1.5rem;
     text-align: center;
     font-size: 1.2rem;
+    //Disable user select on the question
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+}
+
+@media only screen and (max-height: 700px) {
+  .quizz {
+    padding-top: 0.5rem;
+    font-size: 0.8rem;
+
+    &-length {
+      margin-top: 1rem;
+    }
+
+    &-question {
+      font-size: 1rem;
+    }
   }
 }

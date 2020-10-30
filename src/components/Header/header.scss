@@ -1,0 +1,16 @@
+.header {
+  margin: 0.7rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &--logo {
+    width: 26px;
+  }
+
+  &--title {
+    display: inline;
+    margin-left: 0.6rem;
+    font-family: 'Balsamiq Sans', cursive;
+  }
+}

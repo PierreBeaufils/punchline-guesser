@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import './styles.scss';
 import { Switch, Route } from 'react-router-dom';
 
+import Header from 'src/components/Header';
 import Page from 'src/components/Page';
 import Home from 'src/containers/Home';
 import Quiz from 'src/containers/Quiz';
@@ -15,6 +16,7 @@ const App = ({ loading, fetchQuizz }) => {
 
   return (
     <div className="app">
+      <Header />
       {!loading && (
         <Page>
           <Switch>

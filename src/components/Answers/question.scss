@@ -44,3 +44,14 @@
     background-color: rgb(170, 7, 7);
   }
 }
+
+@media only screen and (max-height: 700px) {
+
+  .quizz-answers {
+    margin-top: 1.5rem;
+
+    &--item {
+      padding: 0.8rem;
+    }
+  }
+}

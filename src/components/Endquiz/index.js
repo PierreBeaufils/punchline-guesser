@@ -14,7 +14,7 @@ const Endquiz = ({ score, quiz, quizzLength }) => (
       Difficulté: {quiz.title}
     </div>
     <div className="endquiz--score">
-      Vous avez fais un score de {score} / {quizzLength}
+      Vous avez fait un score de {score} / {quizzLength}
     </div>
     <Link to="/">
       <button

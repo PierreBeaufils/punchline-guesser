@@ -13,7 +13,6 @@ const Home = ({ quizzList }) => {
   ));
   return (
     <div className="home">
-      <p>Hello</p>
       <div className="card-container">
         {allQuizz}
       </div>
