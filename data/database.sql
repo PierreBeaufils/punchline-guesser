@@ -121,7 +121,10 @@ INSERT INTO "answer" ("name") VALUES
 ('Médine'),
 ('Guizmo'),
 ('Dosseh'),
-('Alkpote');
+('Alkpote'),
+('Lacrim'),
+('Gradur'),
+('Ateyaba');
 
 
 INSERT INTO "question" ("question", "difficulty_id", "answer_id") VALUES
@@ -202,6 +205,19 @@ INSERT INTO "question" ("question", "difficulty_id", "answer_id") VALUES
 ('On était censé changer des choses. Depuis quand les choses nous ont changé ? On était censé rien faire comme les autres. Est-ce que tout le monde mentait ?', 3, 7),
 ('J’me suis casé juste après avoir percé, comme si j''passais pro et j''me pétais les croisés', 3, 7),
 ('parfois, les chemins se séparent mais les erreurs se réparent, et la ligne d''arrivée est souvent la ligne de départ', 2, 7),
+('Les ravisseurs demandent une rançon comme dans la série, Et quand les glocks touchent les mentons, les langues se délient', 1, 2),
+('Et c''est p''têt parce que j''suis trop déter que j''les ai distancés, Le plus dur c''est de le faire, ce n''est pas d''y penser', 1, 2),
+('Quelques peines de cœur, mais y''a la monnaie qui compense, Atténuantes sont les circonstances, tout travail mérite récompense', 1, 2),
+('Moi, j''ai tellement rêvé du disque d''or que je n''en dors plus la noche, J''dirais que la vie est une grosse chienne et qu''il ne faut pas être en chien pour la dresser', 1, 2),
+('Ton sourire, ça vaut de l''or, donc je creuse encore, j''ai tellement mal mais je fais comme si je ne voyais rien', 1, 2),
+('J''ai brûlé tous les cahiers pour faire vingt mille euros la s''maine, Pas loin d''la cage d''escaliers, certifié par la street et la SNEP', 1, 2),
+('Tu demandes si ça va, je te dis que tout est clean, Je multiplie les billets et les amis se déclinent', 1, 2),
+('La pauvreté, ma seule phobie, faire de la maille, mon seul hobbie, On aime ceux qui inventent, fuck ceux qui copient', 2, 2),
+('J''te raconte pas de mensonges, tu brasses et puis tu plonges, Et c''est les joues de ta mère qui feront le rôle d''éponge', 2, 2),
+('Et deux billets de 500 brisent une amitié parce que ton ami veut plus que la moitié, Quand j''avais pas ce métier, dis moi où vous étiez ?', 2, 2),
+('J''ai toujours rêvé de m''barrer, mais tout a foiré, Les sentiments c''est comme le fisc, il faut pas tout déclarer', 3, 41),
+('Ta pétasse écarte les jambes, elle veut que j''la remplisse comme le Zénith', 3, 41),
+('D''la France et de Navarre, j''rappe, j''tue des mc''s j''suis Kendrick La mort', 3, 42),
 
 
 
