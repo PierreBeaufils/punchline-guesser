@@ -14,7 +14,7 @@ const initialState = {
   error: null,
 };
 
-const auth = (state = initialState, action = {}) => {
+const user = (state = initialState, action = {}) => {
   switch (action.type) {
     case CHANGE_FIELD_VALUE:
       return {
@@ -40,4 +40,4 @@ const auth = (state = initialState, action = {}) => {
   }
 };
 
-export default auth;
+export default user;

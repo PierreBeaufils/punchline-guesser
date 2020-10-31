@@ -8,6 +8,7 @@ import Page from 'src/components/Page';
 import Home from 'src/containers/Home';
 import Quiz from 'src/containers/Quiz';
 import Endquiz from 'src/containers/Endquiz';
+import Register from 'src/components/Register';
 import Login from 'src/containers/Login';
 import Dashboard from 'src/components/Dashboard';
 
@@ -29,6 +30,7 @@ const App = ({ loading, fetchQuizz, isLogged }) => {
             <Route exact path="/quiz/:id/result">
               <Endquiz />
             </Route>
+            <Route exact path="/signup" component={Register} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/admin">
               {isLogged ? <Dashboard /> : <Redirect to="/login" />}
