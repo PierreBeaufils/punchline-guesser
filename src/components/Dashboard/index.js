@@ -7,7 +7,7 @@ const Dashboard = () => {
   return (
     <div className="main-container">
       <div className="dashboard">
-        {test}
+        {test} Panneau admin
       </div>
     </div>
   );

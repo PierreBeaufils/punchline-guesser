@@ -9,8 +9,8 @@ const initialState = {
     email: '',
     password: '',
   },
-  isLogged: true, // A MODIFIER UNE FOIS LES SESSIONS IMPLEMENTEES
-  session: {},
+  isLogged: false, // A MODIFIER UNE FOIS LES SESSIONS IMPLEMENTEES
+  user: {},
   error: null,
 };
 
@@ -21,7 +21,7 @@ const user = (state = initialState, action = {}) => {
         ...state,
         [action.section]: {
           ...state[action.section],
-          [action.field]: action.value,
+          [action.name]: action.value,
         },
       };
     case SET_ERROR:
@@ -30,10 +30,11 @@ const user = (state = initialState, action = {}) => {
         error: action.error,
       };
     case SAVE_SESSION:
+      console.log(`session:${action}`);
       return {
         ...state,
-        session: action.session,
-        isLogged: true,
+        user: action.session,
+        isLogged: action.logged,
       };
     default:
       return state;

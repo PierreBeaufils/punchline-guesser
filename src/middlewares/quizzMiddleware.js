@@ -10,7 +10,7 @@ const quizzMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case FETCH_QUIZZ:
       store.dispatch(setLoading(true));
-      axios.get('/', {
+      axios.get('quizz', {
         baseURL,
       }).then((response) => {
         store.dispatch(saveQuizz(response.data));
