@@ -2,7 +2,7 @@ BEGIN;
 
 DROP TABLE IF EXISTS "difficulty",
 "answer",
-"user",
+"users",
 "quiz",
 "question";
 
@@ -24,14 +24,14 @@ CREATE TABLE IF NOT EXISTS "answer" (
   "updated_at" TIMESTAMPTZ
 );
 
--- Table "user"
+-- Table "users"
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS "user" (
+CREATE TABLE IF NOT EXISTS "users" (
   "id" INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   "email" text NOT NULL,
   "password" text NOT NULL,
-  "username" text NULL,
-  "role" text NULL,
+  "username" text NOT NULL,
+  "role" text NULL DEFAULT 'regular',
   "created_at" TIMESTAMPTZ NOT NULL DEFAULT NOW(),
   "updated_at" TIMESTAMPTZ
 );
@@ -66,7 +66,7 @@ CREATE TABLE IF NOT EXISTS "question" (
   -- SEEDING
   -----------------------------------------------------------
 
-INSERT INTO "user" ("username", "email", "password", "role") VALUES
+INSERT INTO "users" ("username", "email", "password", "role") VALUES
 ('admin', 'messon1@live.fr', 'monaco123', 'admin');
 
 INSERT INTO "difficulty" ("name") VALUES
@@ -217,7 +217,7 @@ INSERT INTO "question" ("question", "difficulty_id", "answer_id") VALUES
 ('Et deux billets de 500 brisent une amitié parce que ton ami veut plus que la moitié, Quand j''avais pas ce métier, dis moi où vous étiez ?', 2, 2),
 ('J''ai toujours rêvé de m''barrer, mais tout a foiré, Les sentiments c''est comme le fisc, il faut pas tout déclarer', 3, 41),
 ('Ta pétasse écarte les jambes, elle veut que j''la remplisse comme le Zénith', 3, 41),
-('D''la France et de Navarre, j''rappe, j''tue des mc''s j''suis Kendrick La mort', 3, 42),
+('D''la France et de Navarre, j''rappe, j''tue des mc''s j''suis Kendrick La mort', 3, 42);
 
 
 

@@ -2,7 +2,7 @@ const Answer = require('./answer');
 const Difficulty = require('./difficulty');
 const Question = require('./question');
 const Quiz = require('./quiz');
-const User = require('./user');
+const User = require('./users');
 
 // Question <-> Answer
 Answer.hasMany(Question, {
