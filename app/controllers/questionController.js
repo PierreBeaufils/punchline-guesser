@@ -34,7 +34,7 @@ const questionController = {
                 answer_id: req.body.list_id,
             });
 
-            res.json(newQuestion);
+            res.status(200).json(newQuestion);
         } catch (error) {
             console.trace(error);
             res.status(500).json(error.toString());

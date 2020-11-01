@@ -176,7 +176,8 @@ const mainController = {
             let questions = await Question.findAll({
                 include: ["good_answer", "difficulty"]
             });
-            res.status(200).json(questions);
+            let answers = await Answer.findAll();
+            res.status(200).json({ questions, answers });
         } catch (error) {
             console.trace(error);
             res.status(500).json(error);

@@ -5,7 +5,7 @@ const sanitizeHtml = require('sanitize-html');
 const router = require('./app/router');
 const multer = require('multer');
 const bodyParser = multer(); // Parse request body on api side et alimenter req.body with an object
-const cookieParser = require('cookie-parser');
+const cookieParser = require('cookie-parser'); // A delete
 
 const port = process.env.PORT || 3000;
 
@@ -19,10 +19,10 @@ server.use(express.urlencoded({
 // server.use(cookieParser());
 
 server.use(cors({
-    origin: 'https://mambo7.postman.co',// 'http://localhost:8080',
+    origin: ['https://mambo7.postman.co', 'http://localhost:8080'],
     credentials: true,
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-    allowedHeaders: 'Origin, X-Requested-With, Content-Type, Accept',
+    allowedHeaders: 'Origin, X-Requested-With, Content-Type, Accept, x-auth-token, x-access-token',
     exposedHeaders: 'x-auth-token',
     preflightContinue: false,
 }));
