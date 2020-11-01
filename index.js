@@ -5,6 +5,7 @@ const sanitizeHtml = require('sanitize-html');
 const router = require('./app/router');
 const multer = require('multer');
 const bodyParser = multer(); // Parse request body on api side et alimenter req.body with an object
+const cookieParser = require('cookie-parser');
 
 const port = process.env.PORT || 3000;
 
@@ -15,11 +16,14 @@ server.use(express.urlencoded({
     extended: true,
 }));
 
+// server.use(cookieParser());
+
 server.use(cors({
     origin: 'http://localhost:8080',
     credentials: true,
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     allowedHeaders: 'Origin, X-Requested-With, Content-Type, Accept',
+    exposedHeaders: 'x-auth-token',
     preflightContinue: false,
 }));
 

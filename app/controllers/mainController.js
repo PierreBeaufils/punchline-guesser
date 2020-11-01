@@ -10,10 +10,12 @@ const {
     Op
 } = require("sequelize");
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+const secret = process.env.SECRET;
 
 const mainController = {
 
-    home: async (req, res) => {
+    getQuizz: async (req, res) => {
         try {
             const quizzes = await Quiz.findAll({
                 include: 'quiz_difficulty'
@@ -134,24 +136,43 @@ const mainController = {
                 }
             });
             if (!user) {
-                return res.status(203).json('Utilisateur non reconnu');
+                return res.status(203).json('Email/mot de passe incorrect');
             }
 
             // if User, check password
             const validPwd = await bcrypt.compare(req.body.password, user.password);
             if (!validPwd) {
-                return res.status(203).json('Mot de passe incorrect');
+                return res.status(203).json('Email/mot de passe incorrect');
             }
 
             // Set session without password
             // req.session.user = user;
             // delete req.session.user.password;
+            const token = jwt.sign({ id: user.id }, secret, {
+                expiresIn: 86400
+            });
 
-            res.status(200).json('connecté');
+            const userInfos = {
+                id: user.id,
+                username: user.username,
+                email: user.email,
+                role: user.role,
+                accessToken: token,
+            };
+
+            res.status(200).send({ user: userInfos });
 
         } catch (error) {
             res.status(500).json(error);
         }
+    },
+
+    checkToken: (req, res) => {
+        res.sendStatus(200);
+    },
+
+    admin: async (req, res) => {
+        res.status(200).json('panneau administrateur');
     },
 
     logout: (req, res) => {
