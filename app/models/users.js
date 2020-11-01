@@ -4,7 +4,7 @@ const {
 } = require('sequelize');
 const sequelize = require('../database');
 
-class User extends Model {};
+class User extends Model { };
 
 User.init({
     email: DataTypes.TEXT,
@@ -13,7 +13,7 @@ User.init({
     role: DataTypes.TEXT,
 }, {
     sequelize,
-    tableName: "user"
+    tableName: "users"
 });
 
 
