@@ -1,16 +1,23 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-const Dashboard = () => {
-  const test = 1;
+const Dashboard = ({ fetchData, data }) => {
+  useEffect(() => {
+    fetchData();
+  });
 
   return (
     <div className="main-container">
       <div className="dashboard">
-        {test} Panneau admin
+        Panneau admin
       </div>
     </div>
   );
+};
+
+Dashboard.propTypes = {
+  fetchData: PropTypes.func.isRequired,
+  data: PropTypes.array.isRequired,
 };
 
 export default Dashboard;
