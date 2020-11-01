@@ -6,7 +6,9 @@ import star from 'src/assets/images/star.png';
 import './home.scss';
 
 // == Component
-const QuizCard = ({ title, description, thumbnail, id }) => {
+const QuizCard = ({
+  title, description, thumbnail, id,
+}) => {
   const stars = () => {
     if (id === 1) {
       return <img src={star} alt="" width="20px" />;
