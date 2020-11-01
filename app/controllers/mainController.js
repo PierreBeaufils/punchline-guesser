@@ -167,10 +167,6 @@ const mainController = {
         }
     },
 
-    checkToken: (req, res) => {
-        res.sendStatus(200);
-    },
-
     admin: async (req, res) => {
         try {
             let questions = await Question.findAll({
