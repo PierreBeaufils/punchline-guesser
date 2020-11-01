@@ -160,7 +160,7 @@ const mainController = {
                 accessToken: token,
             };
 
-            res.status(200).send({ user: userInfos });
+            res.status(200).json({ user: userInfos });
 
         } catch (error) {
             res.status(500).json(error);
@@ -172,7 +172,15 @@ const mainController = {
     },
 
     admin: async (req, res) => {
-        res.status(200).json('panneau administrateur');
+        try {
+            let questions = await Question.findAll({
+                include: ["good_answer", "difficulty"]
+            });
+            res.status(200).json(questions);
+        } catch (error) {
+            console.trace(error);
+            res.status(500).json(error);
+        }
     },
 
     logout: (req, res) => {

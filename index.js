@@ -19,7 +19,7 @@ server.use(express.urlencoded({
 // server.use(cookieParser());
 
 server.use(cors({
-    origin: 'http://localhost:8080',
+    origin: 'https://mambo7.postman.co',// 'http://localhost:8080',
     credentials: true,
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     allowedHeaders: 'Origin, X-Requested-With, Content-Type, Accept',
