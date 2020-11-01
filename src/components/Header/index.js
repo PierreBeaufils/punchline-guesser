@@ -11,8 +11,10 @@ const Header = ({ user }) => (
     <Link to="/">
       <h1 className="header--title">Punchline Guesser</h1>
     </Link>
-    {user && (
-      <p>{user.username}</p>
+    {user.role === 'admin' && (
+      <Link to="/admin" className="header-dashboard">
+        <p>Dashboard</p>
+      </Link>
     )}
   </div>
 

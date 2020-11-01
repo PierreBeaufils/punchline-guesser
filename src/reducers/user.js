@@ -30,7 +30,6 @@ const user = (state = initialState, action = {}) => {
         error: action.error,
       };
     case SAVE_SESSION:
-      console.log(`session:${action}`);
       return {
         ...state,
         user: action.session,

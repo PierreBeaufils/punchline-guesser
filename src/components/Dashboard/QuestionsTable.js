@@ -1,13 +1,16 @@
 import React, { useState, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import './dashboard.scss';
-
-import { useTable, useSortBy, useGlobalFilter } from 'react-table';
+import { baseURL } from 'src/config';
+import axios from 'axios';
+import { useTable, useSortBy, useFilters } from 'react-table';
 
 const QuestionsTable = ({
   data,
 }) => {
-  const [filterInput, setFilterInput] = useState('');
+  const [questionInput, setQuestionInput] = useState('');
+  const [artistInput, setArtistInput] = useState('');
+  const [message, setMessage] = useState('');
   const columns = useMemo(
     () => [
       {
@@ -36,27 +39,75 @@ const QuestionsTable = ({
     headerGroups, // headerGroups, if your table has groupings
     rows, // rows for the table based on the data passed
     prepareRow, // this function needs to be called for each row before getting the row props
-    setGlobalFilter,
+    setFilter,
   } = useTable({
     columns,
     data,
-  }, useGlobalFilter, useSortBy);
+  }, useFilters, useSortBy);
 
-  const handleFilterChange = (e) => {
+  const handleQuestionFilterChange = (e) => {
     const value = e.target.value || undefined;
-    setGlobalFilter(value);
-    setFilterInput(value);
+    setFilter('question', value);
+    setQuestionInput(value);
+  };
+
+  const handleArtistFilterChange = (e) => {
+    const value = e.target.value || undefined;
+    setFilter('good_answer.name', value);
+    setArtistInput(value);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const form = new FormData(event.target);
+    axios.post(`${baseURL}/question`, form)
+      .then((res) => {
+        setMessage(res.data);
+      });
   };
 
   return (
     <>
-      <input
-        className="dashboard-filter"
-        value={filterInput}
-        onChange={handleFilterChange}
-        placeholder="Rechercher une question"
-      />
-      <span className="rows-results">{rows.length} résultats</span>
+      <form className="question-form" onSubmit={handleSubmit}>
+        <div className="question-form-field punchline-div">
+          <label htmlFor="questionName">Punchline
+            <input
+              name="questionName"
+              className="dashboard-input"
+              value={questionInput}
+              onChange={handleQuestionFilterChange}
+              placeholder="Punchline"
+              required
+            />
+          </label>
+        </div>
+        <div className="question-form-field artist-div">
+          <label htmlFor="answerName">Artiste
+            <input
+              name="answerName"
+              className="dashboard-input artist-input"
+              value={artistInput}
+              onChange={handleArtistFilterChange}
+              placeholder="Artiste"
+              required
+            />
+          </label>
+        </div>
+        <div className="question-form-field difficulty-div">
+          <label htmlFor="difficultyId">Difficulté
+            <select name="difficultyId" className="dashboard-input" required>
+              <option value="1">Facile</option>
+              <option value="2">Intermédiaire</option>
+              <option value="3">Difficile</option>
+            </select>
+          </label>
+        </div>
+        <button type="submit">Ajouter une question</button>
+      </form>
+
+      {message && (<div className="question-form-message">{message}</div>)}
+
+      <div className="rows-results">{rows.length} résultats</div>
       <table {...getTableProps()} className="dashboard-table">
         <thead>
           {headerGroups.map((headerGroup) => (
