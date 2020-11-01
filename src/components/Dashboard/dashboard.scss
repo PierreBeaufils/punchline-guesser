@@ -90,22 +90,28 @@
   }
 
   & button[type=submit] {
-    padding: 0px 10px;
+    align-self: center;
+    padding: 10px 10px;
     background: vars.$button-color;
     border: none;
     border-radius: 45px;
     color: vars.$font-color;
-    font-weight: 500;
+    font-weight: 600;
     transition: all 300ms ease;
     cursor: pointer;
     -webkit-box-shadow: 3px 3px 15px 1px rgba(0, 0, 0, 0.33);
     -moz-box-shadow: 3px 3px 15px 1px rgba(0, 0, 0, 0.33);
     box-shadow: 3px 3px 15px 1px rgba(0, 0, 0, 0.33);
+
+    &:hover {
+      color: darken(vars.$font-color, 20%);
+    }
   }
 
   &-message {
     text-align: center;
     font-weight: bold;
     margin: 10px auto;
+    color: green;
   }
 }
