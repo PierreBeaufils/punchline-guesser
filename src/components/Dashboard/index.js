@@ -53,7 +53,7 @@ const Dashboard = () => {
           </>
         )}
       </div>
-    </div >
+    </div>
   );
 };
 

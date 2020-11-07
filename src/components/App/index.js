@@ -35,10 +35,10 @@ const App = ({
             </Route>
             <Route exact path="/signup" component={Register} />
             <Route exact path="/login">
-              {isLogged ? <Home /> : <Login />}
+              {isLogged ? <Redirect to="/" /> : <Login />}
             </Route>
             <Route exact path="/admin">
-              {user.role === 'admin' ? <Dashboard /> : <Redirect to="/login" />}
+              {user && user.role === 'admin' ? <Dashboard /> : <Redirect to="/login" />}
             </Route>
           </Switch>
         </Page>
@@ -52,7 +52,7 @@ App.propTypes = {
   fetchQuizz: PropTypes.func.isRequired,
   checkLogin: PropTypes.func.isRequired,
   isLogged: PropTypes.bool.isRequired,
-  user: PropTypes.object.isRequired,
+  user: PropTypes.object,
 };
 
 export default App;
