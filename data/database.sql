@@ -133,7 +133,6 @@ INSERT INTO "question" ("question", "difficulty_id", "answer_id") VALUES
 ('Le monde fait flipper, mec tu sais plus rien ne m’atteint, et plus je connais les hommes plus j’aime mon chien.', 1, 1),
 ('On joue pas de la mandoline, j''ai le glaive de la garde prétorienne, J''te fume comme à Medellín et j''soulève deux, trois mongoliennes', 1, 5),
 ('Mon rap choque comme une nonne qui fume le crack à Vincennes, Tatouée, sapée très sexe, bafouée pour 20 cents', 1, 32),
-('Les rageux c''est comme les gens ou l''argent gros ça va, ça vient, Fais le mal tout le monde s''en rappelle, fais le bien personne s''en souvient', 3, 35),
 ('Faudra zipper le sac mortuaire sur mon visage, Et m''envoyer rejoindre James Brown et Isaac Hayes', 3, 36),
 ('Ici ça caille, les stades sont remplis de "Sieg heil", Y''a pas de trône dans l''rap mais que des chaises musicales', 3, 36),
 ('Bu-bar boule à one, je n''ai pas la voix de Balavoine, Sur les traces de mes ancêtres, j''ai pris la voie du padawan', 3, 36),
@@ -217,7 +216,19 @@ INSERT INTO "question" ("question", "difficulty_id", "answer_id") VALUES
 ('Et deux billets de 500 brisent une amitié parce que ton ami veut plus que la moitié, Quand j''avais pas ce métier, dis moi où vous étiez ?', 2, 2),
 ('J''ai toujours rêvé de m''barrer, mais tout a foiré, Les sentiments c''est comme le fisc, il faut pas tout déclarer', 3, 41),
 ('Ta pétasse écarte les jambes, elle veut que j''la remplisse comme le Zénith', 3, 41),
-('D''la France et de Navarre, j''rappe, j''tue des mc''s j''suis Kendrick La mort', 3, 42);
+('D''la France et de Navarre, j''rappe, j''tue des mc''s j''suis Kendrick La mort', 3, 42),
+('Les soucis rentrent quand les sous rentrent, l''amitié s''barre en courant, Y a qu''un doigt entre un coup d''main et une main courante', 3, 35),
+('Plus solitaire qu''un ver de terre, plus solidaire qu''un frère déter', 2, 35),
+('À chaque projet, j''fais tout sauter, j''suis pas sous-côté, j''suis sur le côté', 2, 35),
+('Elle parle de grosse somme, consomme que mes culs de joint dans leur cendrier, C''est chelou t''es pas une cochonne mais ta schneck elle pue le sanglier', 1, 35),
+('Les rageux c''est comme les gens ou l''argent gros ça va, ça vient, Fais le mal tout le monde s''en rappelle, fais le bien personne s''en souvient', 3, 35),
+('J''veux une meuf vierge comme le casier judiciaire à mon p''tit frère, Mais c''est aussi rare que de trouver un sourire sincère dans un cimetière', 3, 35),
+('J''leur ai fait peur comme le futur, j''reviens sur eux comme le passé, Quitter la rue sera le plus dur et j''pourrai pas tout effacer', 3, 35),
+('Avant d''voir la trahison d''près, j''savais pas vraiment c''que c''était, C''est là qu''j''ai su qu''un ami qui ne l''est plus ne l''a jamais été', 2, 35),
+('J''veux pas culpabiliser pour ce que j''aurais pu commettre, J''ai vu le nombre de traîtres au mètre carré, j''me suis senti honnête', 2, 35),
+('Racontes-nous pas ta vie on a vu pire sur la Terre-Mère, Ta richesse est temporaire, ton Enfer est éternel', 3, 35),
+('Quand t''es en vie on veut ta mort, Quand t''es mort on veut t''voir en vie', 3, 35);
+
 
 
 

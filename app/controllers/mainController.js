@@ -145,9 +145,6 @@ const mainController = {
                 return res.status(203).json('Email/mot de passe incorrect');
             }
 
-            // Set session without password
-            // req.session.user = user;
-            // delete req.session.user.password;
             const token = jwt.sign({ id: user.id }, secret, {
                 expiresIn: 86400
             });
