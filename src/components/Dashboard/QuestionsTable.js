@@ -5,6 +5,7 @@ import { baseURL } from 'src/config';
 import axios from 'axios';
 import { useTable, useSortBy, useFilters } from 'react-table';
 import { Edit3, Trash } from 'react-feather';
+import EditModal from './EditModal';
 
 const QuestionsTable = ({
   data,
@@ -12,10 +13,17 @@ const QuestionsTable = ({
   const [questionInput, setQuestionInput] = useState('');
   const [artistInput, setArtistInput] = useState('');
   const [message, setMessage] = useState('');
+  const [modalIsOpen, setIsOpen] = useState(false);
+  const [questionToEdit, setquestionToEdit] = useState({});
 
-  const handleEdit = (question) => {
-    console.log(question);
-  };
+  function openModal(question) {
+    setIsOpen(true);
+    setquestionToEdit(question);
+  }
+
+  function closeModal() {
+    setIsOpen(false);
+  }
 
   const handleDelete = (question) => {
     axios.delete(`${baseURL}/question/${question.id}`)
@@ -55,7 +63,7 @@ const QuestionsTable = ({
         Header: 'Modifier',
         Cell: ({ row }) => (
           <div className="dashboard-table-edit">
-            <Edit3 className="button button-edit" onClick={() => handleEdit(row.original)} />
+            <Edit3 className="button button-edit" onClick={() => openModal(row.original)} />
             <Trash className="button button-delete" onClick={() => handleDelete(row.original)} />
           </div>
         ),
@@ -90,6 +98,11 @@ const QuestionsTable = ({
 
   return (
     <>
+      <EditModal
+        modalIsOpen={modalIsOpen}
+        closeModal={closeModal}
+        question={questionToEdit}
+      />
       <form className="question-form" onSubmit={handleSubmit}>
         <div className="question-form-field punchline-div">
           <label htmlFor="questionName">Punchline

@@ -105,12 +105,6 @@
     }
   }
 
-  & .dashboard-input {
-    padding: 10px 10px;
-    font-size: 15px;
-    width: 100%;
-  }
-
   & button[type=submit] {
     align-self: center;
     padding: 10px 10px;
@@ -136,4 +130,10 @@
     margin: 10px auto;
     color: green;
   }
+}
+
+.dashboard-input {
+  padding: 10px 10px;
+  font-size: 15px;
+  width: 100%;
 }
