@@ -1,0 +1,117 @@
+@use 'src/styles/vars';
+
+.dashboard-container {
+  width: 100%;
+
+  & h1 {
+    text-align: center;
+    font-size: 40px;
+    text-decoration: underline;
+  }
+}
+
+.dashboard {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.dashboard-infos {
+  margin: 40px 0;
+
+  & p {
+    margin-bottom: 8px;
+  }
+}
+
+.rows-results {
+  margin: 20px auto;
+  text-align: center;
+}
+
+.dashboard-table {
+  border: solid 1px gray;
+  max-width: 1200px;
+  margin-bottom: 40px;
+  box-shadow: 1px 3px 18px 3px rgba(0, 0, 0, 0.48);
+  -webkit-box-shadow: 1px 3px 18px 3px rgba(0, 0, 0, 0.48);
+  -moz-box-shadow: 1px 3px 18px 3px rgba(0, 0, 0, 0.48);
+
+  &-header {
+    border-bottom: solid 3px gray;
+    padding: 1rem;
+    background: aliceblue;
+    color: black;
+    font-weight: bold;
+  }
+
+  &-row {
+    padding: 10px;
+    border: solid 1px gray;
+    background: #24364E;
+  }
+}
+
+.question-form {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  width: 100%;
+
+  & .punchline-div {
+    flex-grow: 20;
+  }
+
+  & .artist-div {
+    max-width: 120px;
+    // flex-grow: 1;
+  }
+
+  & .difficulty-div {
+    max-width: 150px;
+  }
+
+  &-field {
+    display: flex;
+    flex-flow: column wrap;
+    text-align: center;
+    margin: 0 10px;
+
+    & input,
+    select {
+      display: block;
+      margin-top: 5px;
+    }
+  }
+
+  & .dashboard-input {
+    padding: 10px 10px;
+    font-size: 15px;
+    width: 100%;
+  }
+
+  & button[type=submit] {
+    align-self: center;
+    padding: 10px 10px;
+    background: vars.$button-color;
+    border: none;
+    border-radius: 45px;
+    color: vars.$font-color;
+    font-weight: 600;
+    transition: all 300ms ease;
+    cursor: pointer;
+    -webkit-box-shadow: 3px 3px 15px 1px rgba(0, 0, 0, 0.33);
+    -moz-box-shadow: 3px 3px 15px 1px rgba(0, 0, 0, 0.33);
+    box-shadow: 3px 3px 15px 1px rgba(0, 0, 0, 0.33);
+
+    &:hover {
+      color: darken(vars.$font-color, 20%);
+    }
+  }
+
+  &-message {
+    text-align: center;
+    font-weight: bold;
+    margin: 10px auto;
+    color: green;
+  }
+}

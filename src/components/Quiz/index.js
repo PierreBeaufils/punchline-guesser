@@ -7,12 +7,11 @@ import './quiz.scss';
 const Quiz = ({
   quiz, questions, fetchQuestions,
   currentQuestion, questionIndex, answers,
-  goodAnswer, score, handleShowButton,
+  goodAnswer, handleShowButton,
   showButton, increaseScore, quizLoading, nextQuestion, isAnswered,
 }) => {
   useEffect(() => {
     fetchQuestions(quiz.id);
-    console.log(quiz);
   }, []);
 
   const renderButton = () => {
@@ -48,7 +47,7 @@ const Quiz = ({
             Punchline {questionIndex + 1}/{questions.length}
           </div>
           <div className="quizz-question">
-            {currentQuestion.question}
+            « {currentQuestion.question} »
           </div>
           <Answers
             answers={answers}
