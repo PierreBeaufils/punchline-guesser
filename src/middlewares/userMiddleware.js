@@ -27,7 +27,7 @@ const userMiddleware = (store) => (next) => (action) => {
       next(action);
       break;
     case CHECK_LOGIN:
-      // store.dispatch(saveSession(jwt, true));
+      store.dispatch(saveSession(jwt, true));
       next(action);
       break;
     case LOGOUT:

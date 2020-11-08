@@ -4,6 +4,7 @@ import './dashboard.scss';
 import { baseURL } from 'src/config';
 import axios from 'axios';
 import { useTable, useSortBy, useFilters } from 'react-table';
+import { Edit3, Trash } from 'react-feather';
 
 const QuestionsTable = ({
   data,
@@ -11,6 +12,27 @@ const QuestionsTable = ({
   const [questionInput, setQuestionInput] = useState('');
   const [artistInput, setArtistInput] = useState('');
   const [message, setMessage] = useState('');
+
+  const handleEdit = (question) => {
+    console.log(question);
+  };
+
+  const handleDelete = (question) => {
+    axios.delete(`${baseURL}/question/${question.id}`)
+      .then((res) => {
+        setMessage(res.data);
+      });
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const form = new FormData(event.target);
+    axios.post(`${baseURL}/question`, form)
+      .then((res) => {
+        setMessage(res.data);
+      });
+  };
+
   const columns = useMemo(
     () => [
       {
@@ -28,6 +50,15 @@ const QuestionsTable = ({
       {
         Header: 'Difficulté',
         accessor: 'difficulty.name',
+      },
+      {
+        Header: 'Modifier',
+        Cell: ({ row }) => (
+          <div className="dashboard-table-edit">
+            <Edit3 className="button button-edit" onClick={() => handleEdit(row.original)} />
+            <Trash className="button button-delete" onClick={() => handleDelete(row.original)} />
+          </div>
+        ),
       },
     ],
     [],
@@ -55,15 +86,6 @@ const QuestionsTable = ({
     const value = e.target.value || undefined;
     setFilter('good_answer.name', value);
     setArtistInput(value);
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const form = new FormData(event.target);
-    axios.post(`${baseURL}/question`, form)
-      .then((res) => {
-        setMessage(res.data);
-      });
   };
 
   return (
@@ -148,8 +170,13 @@ const QuestionsTable = ({
   );
 };
 
+QuestionsTable.defaultProps = {
+  row: {},
+};
+
 QuestionsTable.propTypes = {
   data: PropTypes.array.isRequired,
+  row: PropTypes.object,
 };
 
 export default QuestionsTable;

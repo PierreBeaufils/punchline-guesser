@@ -49,6 +49,28 @@
     border: solid 1px gray;
     background: #24364E;
   }
+
+  &-edit {
+    display: flex;
+    justify-content: space-around;
+
+    & .button {
+      color: rgb(30, 124, 233);
+      cursor: pointer;
+
+      &-edit {
+        color: rgb(30, 124, 233);
+      }
+
+      &-delete {
+        color: #EF233C;
+      }
+
+      &:hover {
+        filter: brightness(180%);
+      }
+    }
+  }
 }
 
 .question-form {
