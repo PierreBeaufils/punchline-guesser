@@ -132,6 +132,12 @@
   }
 }
 
+.edit-modal {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: flex-start;
+}
+
 .dashboard-input {
   padding: 10px 10px;
   font-size: 15px;

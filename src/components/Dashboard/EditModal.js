@@ -41,7 +41,7 @@ const EditModal = ({ modalIsOpen, closeModal, question }) => {
       >
         <X style={{ marginLeft: 'auto', cursor: 'pointer' }} type="button" onClick={closeModal} />
         <h2>Modifier une question</h2>
-        <form className="question-form" onSubmit={handleEdit}>
+        <form className="edit-modal" onSubmit={handleEdit}>
           <div className="question-form-field punchline-div">
             <label htmlFor="questionName">Punchline
               <input
