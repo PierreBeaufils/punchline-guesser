@@ -40,7 +40,7 @@ const mainController = {
                 questions = await Question.findAll({
                     include: ["good_answer"],
                     order: sequelize.random(),
-                    limit: 3
+                    limit: 10
                 });
             } else {
                 questions = await Question.findAll({
@@ -49,7 +49,7 @@ const mainController = {
                         difficulty_id: quiz.difficulty_id
                     },
                     order: sequelize.random(),
-                    limit: 3
+                    limit: 10
                 });
             };
 
@@ -69,7 +69,7 @@ const mainController = {
                         } //
                     },
                     order: sequelize.random(),
-                    limit: 3
+                    limit: 10
                 });
 
                 randomAnswers.forEach(randomAnswer => {
