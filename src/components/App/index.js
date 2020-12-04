@@ -35,7 +35,7 @@ const App = ({
             </Route>
             <Route exact path="/signup" component={Register} />
             <Route exact path="/login">
-              {isLogged ? <Redirect to="/" /> : <Login />}
+              {isLogged ? <Login /> : <Login />}
             </Route>
             <Route exact path="/admin">
               {user && user.role === 'admin' ? <Dashboard /> : <Redirect to="/login" />}

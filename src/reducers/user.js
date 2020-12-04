@@ -9,7 +9,7 @@ export const initialState = {
     email: '',
     password: '',
   },
-  isLogged: false, // A MODIFIER UNE FOIS LES SESSIONS IMPLEMENTEES
+  isLogged: false,
   user: {},
   error: null,
 };
