@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const sanitizeHtml = require('sanitize-html');
-const router = require('./app/router');
+const router = require('./server/app/router');
 const multer = require('multer');
 const bodyParser = multer(); // Parse request body on api side et alimenter req.body with an object
 
