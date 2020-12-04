@@ -56,7 +56,7 @@ server.use((req, res, next) => {
     next();
 });
 
-server.use('api', router);
+server.use('/api', router);
 
 server.listen(port, () => {
     console.log(`Serveur lancé sur http://localhost:${port}`);
