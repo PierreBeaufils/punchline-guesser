@@ -4,7 +4,7 @@ import {
   SAVE_SESSION,
 } from 'src/actions/user';
 
-const initialState = {
+export const initialState = {
   login: {
     email: '',
     password: '',
