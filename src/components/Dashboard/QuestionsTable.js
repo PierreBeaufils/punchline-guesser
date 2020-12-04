@@ -4,6 +4,8 @@ import './dashboard.scss';
 import { baseURL } from 'src/config';
 import axios from 'axios';
 import { useTable, useSortBy, useFilters } from 'react-table';
+import { Edit3, Trash } from 'react-feather';
+import EditModal from './EditModal';
 
 const QuestionsTable = ({
   data,
@@ -11,6 +13,34 @@ const QuestionsTable = ({
   const [questionInput, setQuestionInput] = useState('');
   const [artistInput, setArtistInput] = useState('');
   const [message, setMessage] = useState('');
+  const [modalIsOpen, setIsOpen] = useState(false);
+  const [questionToEdit, setquestionToEdit] = useState({});
+
+  function openModal(question) {
+    setIsOpen(true);
+    setquestionToEdit(question);
+  }
+
+  function closeModal() {
+    setIsOpen(false);
+  }
+
+  const handleDelete = (question) => {
+    axios.delete(`${baseURL}/question/${question.id}`)
+      .then((res) => {
+        setMessage(res.data);
+      });
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const form = new FormData(event.target);
+    axios.post(`${baseURL}/question`, form)
+      .then((res) => {
+        setMessage(res.data);
+      });
+  };
+
   const columns = useMemo(
     () => [
       {
@@ -28,6 +58,15 @@ const QuestionsTable = ({
       {
         Header: 'Difficulté',
         accessor: 'difficulty.name',
+      },
+      {
+        Header: 'Modifier',
+        Cell: ({ row }) => (
+          <div className="dashboard-table-edit">
+            <Edit3 className="button button-edit" onClick={() => openModal(row.original)} />
+            <Trash className="button button-delete" onClick={() => handleDelete(row.original)} />
+          </div>
+        ),
       },
     ],
     [],
@@ -57,17 +96,13 @@ const QuestionsTable = ({
     setArtistInput(value);
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const form = new FormData(event.target);
-    axios.post(`${baseURL}/question`, form)
-      .then((res) => {
-        setMessage(res.data);
-      });
-  };
-
   return (
     <>
+      <EditModal
+        modalIsOpen={modalIsOpen}
+        closeModal={closeModal}
+        question={questionToEdit}
+      />
       <form className="question-form" onSubmit={handleSubmit}>
         <div className="question-form-field punchline-div">
           <label htmlFor="questionName">Punchline
@@ -148,8 +183,13 @@ const QuestionsTable = ({
   );
 };
 
+QuestionsTable.defaultProps = {
+  row: {},
+};
+
 QuestionsTable.propTypes = {
   data: PropTypes.array.isRequired,
+  row: PropTypes.object,
 };
 
 export default QuestionsTable;

@@ -49,6 +49,28 @@
     border: solid 1px gray;
     background: #24364E;
   }
+
+  &-edit {
+    display: flex;
+    justify-content: space-around;
+
+    & .button {
+      color: rgb(30, 124, 233);
+      cursor: pointer;
+
+      &-edit {
+        color: rgb(30, 124, 233);
+      }
+
+      &-delete {
+        color: #EF233C;
+      }
+
+      &:hover {
+        filter: brightness(180%);
+      }
+    }
+  }
 }
 
 .question-form {
@@ -83,12 +105,6 @@
     }
   }
 
-  & .dashboard-input {
-    padding: 10px 10px;
-    font-size: 15px;
-    width: 100%;
-  }
-
   & button[type=submit] {
     align-self: center;
     padding: 10px 10px;
@@ -114,4 +130,16 @@
     margin: 10px auto;
     color: green;
   }
+}
+
+.edit-modal {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: flex-start;
+}
+
+.dashboard-input {
+  padding: 10px 10px;
+  font-size: 15px;
+  width: 100%;
 }

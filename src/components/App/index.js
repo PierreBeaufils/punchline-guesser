@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import './styles.scss';
+// import './styles.scss';
 import { Switch, Route, Redirect } from 'react-router-dom';
 
 import Header from 'src/containers/Header';
