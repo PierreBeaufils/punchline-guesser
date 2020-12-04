@@ -12,6 +12,7 @@
     "client": "cd ../client && npm run start",
     "server": "nodemon index.js",
     "start": "node index.js",
+    "heroku-prebuild": "cd client && npm install --dev",
     "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "repository": {
