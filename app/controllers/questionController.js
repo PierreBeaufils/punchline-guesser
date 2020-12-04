@@ -100,7 +100,7 @@ const questionController = {
             if (question) {
                 // Delete if founded
                 await question.destroy();
-                res.json('question supprimée');
+                res.status(200).json('question supprimée');
             } else {
                 res.status(404).json(`Aucune question à l'id ${id}`);
             }

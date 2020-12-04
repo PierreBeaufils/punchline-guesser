@@ -227,7 +227,13 @@ INSERT INTO "question" ("question", "difficulty_id", "answer_id") VALUES
 ('Avant d''voir la trahison d''près, j''savais pas vraiment c''que c''était, C''est là qu''j''ai su qu''un ami qui ne l''est plus ne l''a jamais été', 2, 35),
 ('J''veux pas culpabiliser pour ce que j''aurais pu commettre, J''ai vu le nombre de traîtres au mètre carré, j''me suis senti honnête', 2, 35),
 ('Racontes-nous pas ta vie on a vu pire sur la Terre-Mère, Ta richesse est temporaire, ton Enfer est éternel', 3, 35),
-('Quand t''es en vie on veut ta mort, Quand t''es mort on veut t''voir en vie', 3, 35);
+('Quand t''es en vie on veut ta mort, Quand t''es mort on veut t''voir en vie', 3, 35)
+('J''baise toutes mes ex-putes et tous mes ex-potes, Dans ta tuyauterie j''éjacule du Destop', 2, 39),
+('J''suis sur l''terrain dans ton cul ou ton tube utérin, J''ferai un salut hitlérien si j''vais à Salut les Terriens', 1, 39),
+('Mon style est si juteux, je reviens sans repos, Mon flow est sirupeux, le tien est séropo', 1, 39),
+('J''éjacule du venin, sur ces branquignoles, Y''a pas d''antidote, j''suis aux antipodes d''tes gentils potes', 1, 39),
+('T''as trop d''calvitie, t''as besoin d''un perruquier, Après s''être fait sodomiser, j''veux pas sentir un pet d''Ruquier', 2, 39),
+('Je pourrais même fourrer Martine Aubry, Au p''tit-déj'' j''me fais une tartine au brie', 1, 39),
 
 
 
