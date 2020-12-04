@@ -13,13 +13,25 @@ import quizzMiddleware from 'src/middlewares/quizzMiddleware';
 // == Enhancers
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-const enhancers = composeEnhancers(
-  applyMiddleware(
-    logMiddleware,
-    userMiddleware,
-    quizzMiddleware,
-  ),
-);
+let enhancers;
+
+if (process.env.NODE_ENV !== 'production') {
+  enhancers = composeEnhancers(
+    applyMiddleware(
+      logMiddleware,
+      userMiddleware,
+      quizzMiddleware,
+    ),
+  );
+}
+else {
+  enhancers = composeEnhancers(
+    applyMiddleware(
+      userMiddleware,
+      quizzMiddleware,
+    ),
+  );
+}
 
 // == Store
 const store = createStore(
