@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon index.js"
+    "test": "start npm run server && start npm run client",
+    "dev": "nodemon index.js",
+    "client": "cd ../client && npm run start",
+    "server": "nodemon index.js"
   },
   "repository": {
     "type": "git",
