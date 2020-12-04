@@ -16,6 +16,7 @@ router.get('/quiz/:id', mainController.displayQuiz);
 router.get('/questions', questionController.list);
 router.get('/question/:id', questionController.read);
 router.post('/question', questionController.create);
+router.patch('/question/:id', questionController.update);
 router.delete('/question/:id', questionController.delete);
 
 router.post('/signup', mainController.signup);
