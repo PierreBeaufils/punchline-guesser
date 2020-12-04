@@ -12,7 +12,7 @@ const port = process.env.PORT || 3000;
 const server = express();
 
 if (ENV === 'production') {
-    server.use(express.static(___dirname + '../client/dist'));
+    server.use(express.static(___dirname + './client/dist'));
 }
 
 // get access to req.body
