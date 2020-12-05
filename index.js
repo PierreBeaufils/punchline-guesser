@@ -13,7 +13,7 @@ const server = express();
 
 if (ENV === 'production') {
     server.use(express.static('./client/dist'));
-    server.get('*', (req, res) => {
+    server.use((req, res) => {
         res.sendFile('./client/dist/index.html');
     });
 }
@@ -46,7 +46,7 @@ server.use((req, res, next) => {
 });
 */
 server.use(express.json());
-// on utlise .none() pour dire qu'on attends pas de fichier, uniquement des inputs "classiques" !
+
 server.use(bodyParser.none());
 
 // middleware to escape html in req.body
