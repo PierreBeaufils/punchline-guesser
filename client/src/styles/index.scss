@@ -4,7 +4,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@600&display=swap');
 
-
+* {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;
@@ -14,13 +19,11 @@ body {
   background-color: vars.$background-color;
   width: 100vw;
   height: 100vh;
-  overflow: hidden;
 }
 
 .quizz-button {
   display: block;
   margin: 0 auto;
-  //box-sizing: border-box;
   padding: 1rem 2rem;
   background-color: vars.$button-color;
   border: none;
