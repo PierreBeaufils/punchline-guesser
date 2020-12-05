@@ -13,6 +13,9 @@ const server = express();
 
 if (ENV === 'production') {
     server.use(express.static('./client/dist'));
+    server.get('*', (req, res) => {
+        res.sendFile('./client/dist/index.html');
+    });
 }
 
 // get access to req.body
