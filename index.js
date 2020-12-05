@@ -11,10 +11,18 @@ const ENV = process.env.NODE_ENV || 'development';
 const port = process.env.PORT || 3000;
 
 const server = express();
-
+/*
 if (ENV === 'production') {
-    // server.use(express.static('./client/dist'));
     server.use(express.static(__dirname + '/client/dist'));
+}
+*/
+if (process.env.NODE_ENV === 'production') {
+    // Serve any static files
+    app.use(express.static(path.join(__dirname, 'client/build')));
+    // Handle React routing, return all requests to React app
+    app.get('*', function (req, res) {
+        res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+    });
 }
 
 // get access to req.body

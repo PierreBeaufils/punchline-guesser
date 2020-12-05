@@ -9,7 +9,9 @@ const adminMW = require('./middlewares/adminMiddleware');
 
 
 
-
+router.get('/', (req, res) => {
+  res.send('Punchline Guesser API');
+});
 router.get('/quizz', mainController.getQuizz);
 router.get('/quiz/:id', mainController.displayQuiz);
 
