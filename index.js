@@ -12,8 +12,8 @@ const port = process.env.PORT || 3000;
 
 const server = express();
 
-if (ENV === 'development') {
-    // server.use(express.static(path.join(__dirname, './client/dist')));
+if (ENV === 'production') {
+    // server.use(express.static('./client/dist'));
     server.use(express.static(__dirname + '/client/dist'));
 }
 
