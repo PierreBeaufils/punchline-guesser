@@ -16,15 +16,6 @@ if (ENV === 'production') {
     server.use(express.static(__dirname + '/client/dist'));
 }
 */
-if (process.env.NODE_ENV === 'production') {
-    // Serve any static files
-    server.use(express.static(path.join(__dirname, 'client/dist')));
-    // Handle React routing, return all requests to React app
-    /*
-    server.get('*', function (req, res) {
-        res.sendFile(path.join(__dirname, 'client/dist', 'index.html'));
-    });*/
-}
 
 // get access to req.body
 server.use(express.urlencoded({
@@ -68,6 +59,16 @@ server.use((req, res, next) => {
 });
 
 server.use('/api', router);
+
+if (process.env.NODE_ENV === 'production') {
+    // Serve any static files
+    server.use(express.static(path.join(__dirname, 'client/dist')));
+    // Handle React routing, return all requests to React app
+
+    server.get('*', function (req, res) {
+        res.sendFile(path.join(__dirname, 'client/dist', 'index.html'));
+    });
+}
 
 server.listen(port, () => {
     console.log(`Serveur lancé sur http://localhost:${port}`);
