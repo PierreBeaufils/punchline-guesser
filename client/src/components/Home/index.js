@@ -4,7 +4,7 @@ import './home.scss';
 
 import QuizCard from './QuizCard';
 
-const Home = (quizzList) => {
+const Home = ({ quizzList }) => {
   const allQuizz = quizzList.map((quiz) => (
     <QuizCard
       key={quiz.id}
