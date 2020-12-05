@@ -6,13 +6,14 @@ const router = require('./server/app/router');
 const multer = require('multer');
 const bodyParser = multer(); // Parse request body on api side et alimenter req.body with an object
 
-const ENV = process.env.NODE_ENV;
+const ENV = process.env.NODE_ENV || 'development';
 const port = process.env.PORT || 3000;
 
 const server = express();
 
 if (ENV === 'production') {
-    server.use(express.static('./client/dist'));
+    // server.use(express.static('./client/dist'));
+    server.use(express.static(__dirname + '/public'));
 }
 
 // get access to req.body
