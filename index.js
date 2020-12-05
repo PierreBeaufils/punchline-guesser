@@ -7,16 +7,14 @@ const multer = require('multer');
 const bodyParser = multer(); // Parse request body on api side et alimenter req.body with an object
 const path = require('path');
 
-const ENV = process.env.NODE_ENV;
+const ENV = process.env.NODE_ENV || 'development';
 const port = process.env.PORT || 3000;
 
 const server = express();
 
-if (ENV === 'production') {
-    server.use(express.static('./client/dist'));
-    server.get('*', (req, res) => {
-        res.sendFile(path.resolve('./client/dist/index.html'));
-    });
+if (ENV === 'development') {
+    // server.use(express.static(path.join(__dirname, './client/dist')));
+    server.use(express.static(__dirname + '/client/dist'));
 }
 
 // get access to req.body
@@ -26,7 +24,7 @@ server.use(express.urlencoded({
 
 
 server.use(cors({
-    origin: ['https://mambo7.postman.co', 'http://localhost:8080', 'http://localhost:3000'],
+    origin: ['https://mambo7.postman.co', 'http://localhost:8080', 'http://localhost:3000', 'https://punchline-guesser.herokuapp.com'],
     credentials: true,
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     allowedHeaders: 'Origin, X-Requested-With, Content-Type, Accept, x-auth-token, x-access-token',
