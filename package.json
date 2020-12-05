@@ -9,7 +9,7 @@
   "scripts": {
     "test": "start npm run server & start npm run client",
     "dev": "nodemon index.js",
-    "client": "cd ../client && npm run start",
+    "client": "cd client && npm run start",
     "server": "nodemon index.js",
     "start": "node index.js",
     "heroku-prebuild": "cd client && npm install --dev",
