@@ -1,6 +1,7 @@
 {
-  "root": "build/",
+  "root": "client/dist/",
   "routes": {
     "/**": "index.html"
-  }
+  },
+  "https_only": true
 }
