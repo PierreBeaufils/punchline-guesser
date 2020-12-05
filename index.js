@@ -15,7 +15,7 @@ const server = express();
 if (ENV === 'production') {
     server.use(express.static('./client/dist'));
     server.get('*', (req, res) => {
-        res.sendFile(path.resolve(__dirname, 'client', 'dist', 'index.html'));
+        res.sendFile(path.resolve('./client/dist/index.html'));
     });
 }
 
