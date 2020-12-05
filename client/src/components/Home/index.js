@@ -13,6 +13,9 @@ const Home = ({ quizzList }) => {
   ));
   return (
     <div className="home">
+      <div className="home-presentation">
+        10 punchlines, devine quel rappeur en est l'auteur !
+      </div>
       <div className="card-container">
         {allQuizz}
       </div>
