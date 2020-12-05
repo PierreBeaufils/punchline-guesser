@@ -5,6 +5,7 @@ const sanitizeHtml = require('sanitize-html');
 const router = require('./server/app/router');
 const multer = require('multer');
 const bodyParser = multer(); // Parse request body on api side et alimenter req.body with an object
+const path = require('path');
 
 const ENV = process.env.NODE_ENV;
 const port = process.env.PORT || 3000;
@@ -13,10 +14,9 @@ const server = express();
 
 if (ENV === 'production') {
     server.use(express.static('./client/dist'));
-    /*
-    server.use((req, res) => {
-        res.sendFile('./client/dist/index.html');
-    });*/
+    server.get('*', (req, res) => {
+        res.sendFile(path.resolve(__dirname, 'client', 'dist', 'index.html'));
+    });
 }
 
 // get access to req.body
