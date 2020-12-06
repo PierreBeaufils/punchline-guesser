@@ -7,7 +7,7 @@ import logo from 'src/assets/images/favicon.png';
 const Header = ({ user, logout }) => (
 
   <div className="header">
-    <img src={logo} alt="" className="header--logo" />
+    <img src={logo} alt="website logo" className="header--logo" width="26px" height="26px" />
     <Link to="/">
       <h1 className="header--title">Punchline Guesser</h1>
     </Link>

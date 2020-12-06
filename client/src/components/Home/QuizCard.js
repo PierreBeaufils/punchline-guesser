@@ -11,29 +11,29 @@ const QuizCard = ({
 }) => {
   const stars = () => {
     if (id === 1) {
-      return <img src={star} alt="" width="20px" />;
+      return <img src={star} alt="" width="20px" height="20px" />;
     } if (id === 2) {
       return (
         <>
-          <img src={star} alt="" width="20px" />
-          <img src={star} alt="" width="20px" />
+          <img src={star} alt="" width="20px" height="20px" />
+          <img src={star} alt="" width="20px" height="20px" />
         </>
       );
     } if (id === 3) {
       return (
         <>
-          <img src={star} alt="" width="20px" />
-          <img src={star} alt="" width="20px" />
-          <img src={star} alt="" width="20px" />
+          <img src={star} alt="" width="20px" height="20px" />
+          <img src={star} alt="" width="20px" height="20px" />
+          <img src={star} alt="" width="20px" height="20px" />
         </>
       );
     }
     return (
       <>
-        <img src={star} alt="" width="20px" />
-        <img src={star} alt="" width="20px" />
-        <img src={star} alt="" width="20px" />
-        <img src={star} alt="" width="20px" />
+        <img src={star} alt="" width="20px" height="20px" />
+        <img src={star} alt="" width="20px" height="20px" />
+        <img src={star} alt="" width="20px" height="20px" />
+        <img src={star} alt="" width="20px" height="20px" />
       </>
     );
   };
@@ -41,7 +41,7 @@ const QuizCard = ({
     <Link to={`/quiz/${id}`}>
       <div className="quiz-card">
         <div className="quiz-card--header">
-          <img src={thumbnail} alt="" className="thumbnail" />
+          <img src={thumbnail} alt="difficulty logo" className="thumbnail" width="150px" height="150px" />
           <div className="quiz-card--header-content">
             <div className="quiz-card--title">{title}</div>
             <div className="quiz-card--stars">

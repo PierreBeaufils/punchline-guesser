@@ -75,12 +75,12 @@ INSERT INTO "difficulty" ("name") VALUES
 ('Difficile');
 
 INSERT INTO "quiz" ("title", "description", "thumbnail", "difficulty_id") VALUES
-('Facile', 'Lyrics les plus connus du Rap Game', 'https://i.imgur.com/LF8utL8.jpg', 1),
-('Intermédiaire', 'On rentre dans la cour des grands', 'https://i.imgur.com/kF6qG5E.jpg', 2),
-('Difficile', 'Rimeurs d''élite', 'https://i.imgur.com/y3l9qbb.jpg', 3);
+('Facile', 'Lyrics les plus connus du Rap Game', 'https://res.cloudinary.com/do2s9rpyo/image/upload/v1607272666/card-kaaris-201-200_toncet.jpg', 1),
+('Intermédiaire', 'On rentre dans la cour des grands', 'https://res.cloudinary.com/do2s9rpyo/image/upload/v1607272667/card-alkpote244-200_cz6prv.jpg', 2),
+('Difficile', 'Rimeurs d''élite', 'https://res.cloudinary.com/do2s9rpyo/image/upload/v1607272667/card-booba308x250_haq0hu.jpg', 3);
 
 INSERT INTO "quiz" ("title", "description", "thumbnail") VALUES
-('Mix', 'Toutes les punchlines réunies !', 'https://i.imgur.com/0mP0oxc.jpg');
+('Mix', 'Toutes les punchlines réunies !', 'https://res.cloudinary.com/do2s9rpyo/image/upload/v1607272667/card-olkainry-200-217_imtjfj.jpg');
 
 INSERT INTO "answer" ("name") VALUES
 ('Booba'),
