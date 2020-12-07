@@ -60,7 +60,7 @@ server.use((req, res, next) => {
 
 server.use('/api', router);
 
-if (process.env.NODE_ENV !== 'production') {
+if (process.env.NODE_ENV === 'production') {
     // Serve any static files
     server.use(express.static(path.join(__dirname, 'client/dist')));
     // Handle React routing, return all requests to React app
