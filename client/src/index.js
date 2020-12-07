@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 
 import App from 'src/containers/App';
 import store from 'src/store';
+import registerServiceWorker from './registerServiceWorker';
 
 const rootReactElement = (
   <Provider store={store}>
@@ -17,3 +18,5 @@ const rootReactElement = (
 const target = document.getElementById('root');
 
 render(rootReactElement, target);
+
+registerServiceWorker();
